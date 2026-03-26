@@ -1,0 +1,132 @@
+/* Estilos inspirados na Netflix */
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: bold;
+    color: #e50914;
+}
+
+.hero {
+    background-image: url('../img/hero.jpg'); /* Substitua pela imagem do herói */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.btn {
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #f40612;
+}
+
+.section {
+    padding: 50px 20px;
+}
+
+.section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #000 0%, #111 100%);
+}
+
+h1 {
+    color: #fff;
+    font-size: 3em;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.profiles ul {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
+}
+
+.profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.profile:hover img {
+    border-color: #e50914;
+}
+
+.profile p {
+    color: #fff;
+    font-size: 1.2em;
+    margin-top: 15px;
+    text-align: center;
+}
+
+footer {
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+    color: #666;
+}
