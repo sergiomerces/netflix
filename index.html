@@ -2,45 +2,77 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Netflix</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
+    <meta
+      name="description"
+      content="Selecione um perfil para continuar assistindo na Netflix"
+    />
+    <meta name="theme-color" content="#000" />
+    <title>Netflix - Quem está assistindo?</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
     <main>
-      <h1>Quem está assistindo?</h1>
-      <section class="profiles">
-        <ul>
-          <li class="profile">
-            <img
-              src="./assets/img/perfil-1.jpg"
-              alt="Imagem de perfil com uma ilustração estilo cartoon de um personagem usando um chapéu e óculos escuros, com um sorriso amigável."
-            />
-            <p>Stark</p>
+      <header>
+        <div class="header-content">
+          <h1>Quem está assistindo?</h1>
+          <button
+            id="theme-toggle"
+            class="theme-toggle"
+            aria-label="Alternar tema"
+          >
+            🌙
+          </button>
+        </div>
+      </header>
+
+      <section class="profiles" aria-label="Galeria de perfis de usuários">
+        <ul role="list">
+          <li class="profile" role="listitem">
+            <figure>
+              <img
+                src="./assets/img/perfil-1.jpg"
+                alt="Perfil do usuário Stark"
+              />
+              <figcaption>Stark</figcaption>
+            </figure>
           </li>
-          <li class="profile">
-            <img
-              src="./assets/img/perfil-2.jpg"
-              alt="Imagem de perfil de um boné azul com a letra M em destaque."
-            />
-            <p>Rogers</p>
+
+          <li class="profile" role="listitem">
+            <figure>
+              <img
+                src="./assets/img/perfil-2.jpg"
+                alt="Perfil do usuário Rogers"
+              />
+              <figcaption>Rogers</figcaption>
+            </figure>
           </li>
-          <li class="profile">
-            <img
-              src="./assets/img/perfil-1.jpg"
-              alt="Imagem de perfil com uma ilustração estilo cartoon de um personagem usando um chapéu e óculos escuros, com um sorriso amigável."
-            />
-            <p>Romanoff</p>
+
+          <li class="profile" role="listitem">
+            <figure>
+              <img
+                src="./assets/img/perfil-1.jpg"
+                alt="Perfil do usuário Romanoff"
+              />
+              <figcaption>Romanoff</figcaption>
+            </figure>
           </li>
-          <li class="profile">
-            <img
-              src="./assets/img/perfil-2.jpg"
-              alt="Imagem de perfil de um boné azul com a letra M em destaque."
-            />
-            <p>Banner</p>
+
+          <li class="profile" role="listitem">
+            <figure>
+              <img
+                src="./assets/img/perfil-2.jpg"
+                alt="Perfil do usuário Banner"
+              />
+              <figcaption>Banner</figcaption>
+            </figure>
           </li>
         </ul>
       </section>
     </main>
+    <script src="./assets/js/theme-toggle.js"></script>
   </body>
 </html>

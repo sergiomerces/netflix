@@ -1,26 +1,93 @@
 /* Estilos inspirados na Netflix */
 
+/* Variáveis de Tema */
+:root {
+    --bg-primary: #000;
+    --bg-secondary: #111;
+    --text-primary: #fff;
+    --text-secondary: #666;
+    --accent-color: #e50914;
+    --accent-hover: #f40612;
+    --header-bg: rgba(0, 0, 0, 0.8);
+    --gradient-start: #000;
+    --gradient-end: #111;
+}
+
+[data-theme="light"] {
+    --bg-primary: #f5f5f5;
+    --bg-secondary: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666;
+    --accent-color: #e50914;
+    --accent-hover: #f40612;
+    --header-bg: rgba(255, 255, 255, 0.95);
+    --gradient-start: #f5f5f5;
+    --gradient-end: #ffffff;
+}
+
 body {
-    background-color: #000;
-    color: #fff;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: var(--header-bg);
     padding: 20px;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--text-secondary);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-content h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.theme-toggle {
+    background: none;
+    border: 2px solid var(--accent-color);
+    color: var(--text-primary);
+    padding: 8px 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    width: 50px;
+    height: 50px;
+}
+
+.theme-toggle:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.theme-toggle:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
 }
 
 .logo {
     font-size: 2em;
     font-weight: bold;
-    color: #e50914;
+    color: var(--accent-color);
 }
 
 .hero {
@@ -37,25 +104,28 @@ header {
 .hero h1 {
     font-size: 3em;
     margin-bottom: 20px;
+    color: var(--text-primary);
 }
 
 .hero p {
     font-size: 1.2em;
     margin-bottom: 30px;
+    color: var(--text-primary);
 }
 
 .btn {
-    background-color: #e50914;
-    color: #fff;
+    background-color: var(--accent-color);
+    color: var(--bg-primary);
     border: none;
     padding: 15px 30px;
     font-size: 1.2em;
     cursor: pointer;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #f40612;
+    background-color: var(--accent-hover);
 }
 
 .section {
@@ -73,11 +143,12 @@ main {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #000 0%, #111 100%);
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    transition: background 0.3s ease;
 }
 
 h1 {
-    color: #fff;
+    color: var(--text-primary);
     font-size: 3em;
     margin-bottom: 50px;
     text-align: center;
@@ -104,6 +175,14 @@ h1 {
     box-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
 }
 
+.profile figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
 .profile img {
     width: 150px;
     height: 150px;
@@ -114,19 +193,272 @@ h1 {
 }
 
 .profile:hover img {
-    border-color: #e50914;
+    border-color: var(--accent-color);
 }
 
-.profile p {
-    color: #fff;
+.profile figcaption {
+    color: var(--text-primary);
     font-size: 1.2em;
     margin-top: 15px;
     text-align: center;
 }
 
 footer {
-    background-color: #000;
+    background-color: var(--bg-primary);
     padding: 20px;
     text-align: center;
-    color: #666;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--text-secondary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ==================== RESPONSIVIDADE ==================== */
+
+/* Tablets (768px a 1024px) */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 2.5em;
+        margin-bottom: 40px;
+    }
+
+    .profiles ul {
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .profile img {
+        width: 130px;
+        height: 130px;
+    }
+
+    .profile figcaption {
+        font-size: 1.1em;
+        margin-top: 12px;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+}
+
+/* Tablets pequenos e smartphones grandes (480px a 768px) */
+@media (max-width: 768px) {
+    header {
+        padding: 15px;
+    }
+
+    .header-content {
+        gap: 15px;
+    }
+
+    .header-content h1 {
+        font-size: 1.3em;
+    }
+
+    .theme-toggle {
+        width: 45px;
+        height: 45px;
+        padding: 6px 12px;
+        font-size: 1.2em;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+
+    .profiles ul {
+        gap: 20px;
+        flex-wrap: wrap;
+        padding: 0 10px;
+    }
+
+    .profile img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .profile figcaption {
+        font-size: 0.95em;
+        margin-top: 10px;
+    }
+
+    .section h2 {
+        font-size: 1.5em;
+    }
+
+    .hero h1 {
+        font-size: 1.8em;
+    }
+
+    .hero p {
+        font-size: 0.95em;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.95em;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    .logo {
+        font-size: 1.5em;
+    }
+}
+
+/* Smartphones pequenos (até 480px) */
+@media (max-width: 480px) {
+    header {
+        padding: 10px;
+    }
+
+    .header-content {
+        gap: 10px;
+        padding: 0 5px;
+    }
+
+    .header-content h1 {
+        font-size: 1.1em;
+    }
+
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+        padding: 5px 10px;
+        font-size: 1em;
+    }
+
+    main {
+        padding: 20px;
+        min-height: auto;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    .profiles ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        padding: 0;
+    }
+
+    .profile img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .profile figcaption {
+        font-size: 0.85em;
+        margin-top: 8px;
+    }
+
+    .profile:hover {
+        transform: scale(1.05);
+    }
+
+    .section {
+        padding: 30px 15px;
+    }
+
+    .section h2 {
+        font-size: 1.3em;
+    }
+
+    .hero {
+        height: 70vh;
+    }
+
+    .hero h1 {
+        font-size: 1.3em;
+    }
+
+    .hero p {
+        font-size: 0.85em;
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    .logo {
+        font-size: 1.2em;
+    }
+
+    footer {
+        padding: 15px 10px;
+        font-size: 0.85em;
+    }
+}
+
+/* Telas muito pequenas - Perfis em 2 colunas e 2 linhas (até 600px) */
+@media (max-width: 600px) {
+    main {
+        padding-top: 100px;
+    }
+
+    h1 {
+        margin-top: 20px;
+    }
+
+    .profiles ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .profile {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Orientação Landscape em dispositivos pequenos */
+@media (max-height: 600px) and (orientation: landscape) {
+    main {
+        min-height: auto;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+
+    .profiles ul {
+        gap: 15px;
+    }
+
+    .profile img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile figcaption {
+        font-size: 0.8em;
+        margin-top: 5px;
+    }
 }
